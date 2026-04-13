@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>個人履歷表</title>
+  <style>
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --primary: #2f5aa8;
+  --text: #1f2937;
+  --subtext: #6b7280;
+  --line: #dbe3f0;
+  --tag: #eef4ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", "Noto Sans TC", Arial, sans-serif;
+  background: linear-gradient(180deg, #eef3fb 0%, #f8fafc 100%);
+  color: var(--text);
+}
+
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  background: var(--card);
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(31, 41, 55, 0.12);
+  overflow: hidden;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  padding: 36px;
+  background: linear-gradient(135deg, #f8fbff 0%, #edf4ff 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.photo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 5px solid #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  background: #f3f4f6;
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: 2.3rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.intro .title {
+  margin-top: 8px;
+  font-size: 1.1rem;
+  color: var(--subtext);
+  font-weight: 600;
+}
+
+.intro .summary {
+  margin-top: 20px;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.contact {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 10px 18px;
+}
+
+.contact div {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0;
+}
+
+.left, .right {
+  padding: 32px 36px;
+}
+
+.right {
+  background: #fbfcff;
+  border-left: 1px solid var(--line);
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+  color: var(--primary);
+  border-left: 5px solid var(--primary);
+  padding-left: 10px;
+}
+
+.item {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.item-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.item-sub {
+  color: var(--subtext);
+  margin: 4px 0 8px;
+  font-size: 0.94rem;
+}
+
+.item p, .item li {
+  line-height: 1.75;
+  font-size: 0.96rem;
+}
+
+ul {
+  padding-left: 20px;
+  margin: 8px 0 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  background: var(--tag);
+  color: var(--primary);
+  border: 1px solid #d8e6ff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-light {
+  background: #fff;
+  color: var(--primary);
+  border: 1px solid var(--line);
+}
+
+.footer-note {
+  text-align: center;
+  color: var(--subtext);
+  font-size: 0.9rem;
+  padding: 0 20px 28px;
+}
+
+.highlight {
+  outline: 3px solid #9fc0ff;
+  transition: outline 0.25s ease;
+}
+
+@media (max-width: 860px) {
+  .top,
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .right {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    width: 200px;
+    height: 250px;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .container {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .actions {
+    display: none;
+  }
+}
+
+</style>
+</head>
+<body>
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+  <div class="container">
+    <section class="top">
+      <div class="photo-box">
+        <img src="images/global.gif" alt="global">
+        <img src="images/IMG_7676.jpeg" alt="履歷照片" class="photo" />
+      </div>
+      <div class="intro">
+        <h1 id="name">phoebe liu</h1>
+        <div class="title">學生 / 求職履歷範本</div>
+        <p class="summary">
+          我是一位認真、細心且具備學習熱忱的人，擅長整理資訊、製作報告與執行專案。
+          希望透過這份履歷，展現我的學習能力、責任感，以及在團隊合作中的溝通與執行力。
+        </p>
+
+        <div class="contact">
+          <div><strong>姓名：</strong>劉易欣</div>
+          <div><strong>學號：</strong>１１４０１８０６１</div>
+          <div><strong>Email：</strong>phoebeliu1017@gmail.com</div>  
+          <div><strong>GitHub：</strong>github.com/phoebe liu</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn-light" onclick="toggleMusic()">播放 / 暫停音樂</button>
+          <button class="btn-primary" onclick="window.print()">列印 / 匯出 PDF</button>
+          <button class="btn-light" onclick="highlightSkills()">強調技能區塊</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="main">
+      <div class="left">
+        <div class="section">
+          <h2>學歷</h2>
+          <div class="item">
+            <div class="item-title">亞洲大學｜聽語系</div>
+            <div class="item-sub">2022 - 2026</div>
+            <p>主修相關專業課程，培養資料整理、報告撰寫、簡報製作與問題分析能力。</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>經歷</h2>
+          <div class="item">
+            <div class="item-title">專題 / 校內專案</div>
+            <div class="item-sub">2025 - 2026</div>
+            <ul>
+              <li>負責蒐集資料、彙整重點並整理成簡報或書面報告。</li>
+              <li>與組員協作分工，追蹤進度並完成成果展示。</li>
+              <li>培養獨立解決問題與溝通協調能力。</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <div class="item-title">活動 / 社團參與</div>
+            <div class="item-sub">聽語營</div>
+            <ul>
+              <li>協助活動規劃與執行，增進團隊合作與應變能力。</li>
+              <li>參與文書、設計或現場支援等工作。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>自傳 / 個人特質</h2>
+          <div class="item">
+            <p>
+              我做事細心、有耐心，遇到不熟悉的內容會主動查找資料並持續學習。
+              在團隊中，我重視溝通與配合，也願意承擔責任，把事情完成。
+              未來希望能將自己的整理能力、表達能力與執行能力，應用在學習與工作上。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="section" id="skills-section">
+          <h2>技能</h2>
+          <div class="tags">
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">PowerPoint</span>
+            <span class="tag">Word / Excel</span>
+            <span class="tag">資料整理</span>
+            <span class="tag">簡報製作</span>
+            <span class="tag">團隊合作</span>
+            <span class="tag">問題分析</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>證照 / 語言能力</h2>
+          <div class="item">
+            <ul>
+              <li>語言能力：中文、英文（流利）</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>作品集 / 連結</h2>
+          <div class="item">
+            <ul>
+              <li>GitHub：無</li>
+              <li>個人網站：無</li>
+              <li>雲端作品集：無</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>求職目標</h2>
+          <div class="item">
+            <p>
+              希望應徵與行政協助、資料整理、企劃助理、前端網頁初階製作或校園實習相關的職務，
+              並持續提升自己的專業能力與實作經驗。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      此履歷表為 HTML / CSS / JavaScript 版本
+    </div>
+  </div>
+
+  <script>
+const bgm = document.getElementById("bgm");
+
+// 🔥 點擊後才播放（解決瀏覽器限制）
+document.addEventListener("click", function () {
+  bgm.play();
+}, { once: true });
+
+// 播放 / 暫停
+function toggleMusic() {
+  if (bgm.paused) {
+    bgm.play();
+  } else {
+    bgm.pause();
+  }
+}
+
+
+
+
+function highlightSkills() {
+  const section = document.getElementById('skills-section');
+  section.classList.add('highlight');
+
+  setTimeout(() => {
+    section.classList.remove('highlight');
+  }, 1600);
+}
+
+</script>
+</body>
+</html>

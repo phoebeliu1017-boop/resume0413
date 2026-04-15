@@ -29,30 +29,28 @@ body {
 .container {
   max-width: 980px;
   margin: 40px auto;
-  background: var(--card);
+  background-color: var(--card); /* 保持原本的白色背景 */  
+  
   border-radius: 22px;
   box-shadow: 0 18px 40px rgba(31, 41, 55, 0.12);
-  overflow: hidden;
+  position: relative; /* 地球定位需要用到 */
+  overflow: hidden;   /* 確保花邊超出部分被切掉 */
 }
 
 .top {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: 28px;
   padding: 36px;
   background: linear-gradient(135deg, #f8fbff 0%, #edf4ff 100%);
   border-bottom: 1px solid var(--line);
 }
 
-.photo-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .photo {
-  width: 220px;
-  height: 280px;
+  width: 280px; /* 這裡變大，照片就變大！ */
+  height: auto;
   object-fit: cover;
   border-radius: 18px;
   border: 5px solid #fff;
@@ -60,18 +58,36 @@ body {
   background: #f3f4f6;
 }
 
+.intro {
+  position: relative; /* 讓地球可以對準這個框框 */
+  margin-top: 10px;
+}
+
+.global-icon {
+  position: absolute;   
+  width: 90px;         
+  height: auto;
+  top: 0px;          
+  left: -50px;         
+  z-index: 10;         
+  opacity: 0.9;
+}
+
 .intro h1 {
   margin: 0;
   font-size: 2.3rem;
   color: var(--primary);
   letter-spacing: 1px;
+  padding-left: 65px; /* ✨ 讓名字往右移，避開地球中心 */
 }
 
+/* --- 找到這段也加上 padding-left --- */
 .intro .title {
   margin-top: 8px;
   font-size: 1.1rem;
   color: var(--subtext);
   font-weight: 600;
+  padding-left: 40px; /* ✨ 對齊名字 */
 }
 
 .intro .summary {
@@ -254,13 +270,14 @@ button {
 </audio>
 
   <div class="container">
-    <section class="top">
-      <div class="photo-box">
+    <section class="top">      
+      <div class="photo-box">        
         <img src="images/IMG_7676.jpeg" alt="履歷照片" class="photo" />
       </div>
       <div class="intro">
-        <h1 id="name">phoebe liu</h1>
-        <div class="title">學生 / 求職履歷範本</div>
+        <img src="images/global.gif" class="global-icon">
+        <h1 id="name">Phoebe Liu</h1>
+        <div class="title">劉易欣的求職履歷</div>
         <p class="summary">
           我是一位認真、細心且具備學習熱忱的人，擅長整理資訊、製作報告與執行專案。
           希望透過這份履歷，展現我的學習能力、責任感，以及在團隊合作中的溝通與執行力。
@@ -268,7 +285,7 @@ button {
 
         <div class="contact">
           <div><strong>姓名：</strong>劉易欣</div>
-          <div><strong>學號：</strong>１１４０１８０６１</div>
+          <div><strong>學號：</strong>114018061</div>
           <div><strong>Email：</strong>phoebeliu1017@gmail.com</div>  
           <div><strong>GitHub：</strong>github.com/phoebe liu</div>
         </div>
